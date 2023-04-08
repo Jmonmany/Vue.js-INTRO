@@ -11,7 +11,8 @@
     <div id="myApp">
       <h2>
         Since Vue has access to this div container, double brackets can also be
-        used to resolve statements from the html document, if the Vue app doesn't have template.
+        used to resolve statements from the html document, if the Vue app
+        doesn't have template.
         <!-- Comment out the template in app.js to see this in action. -->
       </h2>
       <h3>Let's print { '1' + '1' }</h3>
@@ -22,6 +23,33 @@
       <button v-on:click="changeMessage">Change message</button>
       <!-- it's not necessary to use v-on:click, you can just use @click, 
       and changeMessage with () or without, it's up to you. -->
+    </div>
+    <div id="myApp2">
+      <h3>{{message}}</h3>
+      <p>{{quotes}}</p>
+      <!-- <ul>
+            <li>{{quotes[0].author}}</li>
+            <li>{{quotes[1].author}}</li>
+            <li>{{quotes[2].author}}</li>
+            <li>{{quotes[3].author}}</li>
+            <li>{{quotes[4].author}}</li>
+            <li>{{quotes[5].author}}</li>
+        </ul> -->
+      <ul>
+        <li v-for="phrase in quotes">
+          <!-- we have to apply the v-for directive in the li element, not in the ul element. -->
+          <span>{{phrase.quote}}</span>
+          <blockquote>- {{phrase.author}}</blockquote>
+        </li>
+        <!-- in or of is supported -->
+        <!-- quote.author and not quotes.author because we are iterating over quotes, not the quote object itself. -->
+        <h2>Let's us destructuring/deconstruction to do the same plus index</h2>
+        <li v-for="({quote, author}, index) in quotes">
+          <!-- when we use destructuring, we HAVE to use the same name as the object's properties.  -->
+          <span>{{index + 1}} - {{quote}}</span>
+          <blockquote>- {{author}}</blockquote>
+        </li>
+      </ul>
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="app.js"></script>
