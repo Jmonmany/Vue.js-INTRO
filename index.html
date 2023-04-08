@@ -51,6 +51,15 @@
         </li>
       </ul>
     </div>
+    <div id="myApp3">
+      <h1>Using v-model: {{newSentence}}</h1>
+      <input type="text" v-model="newSentence" v-on:keyup.enter="addSentence" />
+      <!-- v-on keypress fires whenever a key is pressed, not just when enter is pressed. -->
+      <!-- keyup allows us to specify the key we want to listen to, in this case, enter.
+      so keyup.enter is the same as keypress.enter. -->
+      <hr />
+      <span>{{quotes[0].author}}</span>
+    </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="app.js"></script>
   </body>
