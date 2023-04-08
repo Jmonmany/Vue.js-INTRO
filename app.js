@@ -101,9 +101,19 @@ const app3 = Vue.createApp({
   },
   methods: {
     addSentence() {
-        console.log(this.newSentence)
-        this.quotes.unshift({quote: this.newSentence, author: 'Paco'}) // this will add a new object to the array
+      console.log(this.newSentence);
+      this.quotes.unshift({ quote: this.newSentence}); // this will add a new object to the array
     },
   },
 });
 app3.mount("#myApp3");
+
+const app4 = Vue.createApp({
+  data() {
+    return {
+      quotes,
+    };
+  },
+  methods: {},
+});
+app4.mount("#myApp4");

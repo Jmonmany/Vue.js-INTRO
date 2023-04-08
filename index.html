@@ -47,7 +47,7 @@
         <li v-for="({quote, author}, index) in quotes">
           <!-- when we use destructuring, we HAVE to use the same name as the object's properties.  -->
           <span>{{index + 1}} - {{quote}}</span>
-          <blockquote>- {{author}}</blockquote>
+          <blockquote>-Author: {{author}}</blockquote>
         </li>
       </ul>
     </div>
@@ -59,6 +59,21 @@
       so keyup.enter is the same as keypress.enter. -->
       <hr />
       <span>{{quotes[0].author}}</span>
+    </div>
+    <div id="myApp4">
+        <!-- <span v-if="false">Hello</span> this will never be rendered. -->
+        <!-- <span v-if="true">Hello</span> this will always be rendered. -->
+        <ul>
+            <li v-for="({quote, author}, index) in quotes">
+                <span>{{quote}}</span>
+                <blockquote v-if="author !== undefined">- {{author}}</blockquote>
+                <!-- notice that here we are using v-if to check if author is undefined, 
+                and if it is, we don't render the blockquote. -->
+                <blockquote v-show="author !== undefined"></blockquote>
+                <!-- v-show is different from v-if, because it will always render the element,
+                but it will just add a style="display: none" to it. -->
+            </li>
+        </ul>
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="app.js"></script>
