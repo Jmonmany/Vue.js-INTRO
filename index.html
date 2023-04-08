@@ -18,6 +18,10 @@
       <p>{{'from html document: ' + '1' + '1' }}</p>
 
       <p>{{message}}</p>
+      <p>{{author}}</p>
+      <button v-on:click="changeMessage">Change message</button>
+      <!-- it's not necessary to use v-on:click, you can just use @click, 
+      and changeMessage with () or without, it's up to you. -->
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="app.js"></script>

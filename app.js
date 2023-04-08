@@ -18,10 +18,27 @@ const app = Vue.createApp({
     data() {
         return {
             message: 'Hello World',
+            author: 'Jorge',
             // we can also use this structure to create a variable,
             // and then use it in the template, or in the html document directly
             // but it is not reactive, so it will not be updated in the DOM,
             // and only will work if there is no template method
+        }
+    }, 
+    methods: {
+        // methods are reactive, so they will be updated in the DOM
+        changeMessage(event){
+            console.log('Hello World', event)
+            this.message = 'Bye World'
+            // this refers to the Vue instance, and will only refresh and change message!
+            // if we press the button again, Vue will detect that the message did not change,
+            // so it wont refresh the DOM, that is nice!
+            this.capitalize()
+            // here we call the capitalize method, and it will capitalize the author name
+        },
+        capitalize(){
+            this.author = this.author.toUpperCase()
+            // let's say we want to capitalize the author name, after we change the message
         }
     }
     // options API (old): way to create a Vue instance
