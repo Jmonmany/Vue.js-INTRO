@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Intro Vue.js</title>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Vue will have control over this div -->
-    <div id="myApp"></div>
+    <div id="myApp">
+      <h2>
+        Since Vue has access to this div container, double brackets can also be
+        used to resolve statements from the html document, if the Vue app doesn't have template.
+        <!-- Comment out the template in app.js to see this in action. -->
+      </h2>
+      <h3>Let's print { '1' + '1' }</h3>
+      <p>{{'from html document: ' + '1' + '1' }}</p>
+    </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
